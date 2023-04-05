@@ -14,5 +14,22 @@
     <a class="navbar-brand" href="#">Mars One</a>
   </nav>
   <h5>И на Марсе будут яблони цвести</h5>
+  {% if param == "ol" %}
+    <ol>
+      {% for job in jobs %}
+      <li>
+        <h4>{{job}}</h4>
+      </li>
+      {% endfor %}
+    </ol>
+  {% elif param == "ul" %}
+    <ul>
+      {% for job in jobs %}
+      <li>
+        <h4>{{job}}</h4>
+      </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
 </body>
 </html>
