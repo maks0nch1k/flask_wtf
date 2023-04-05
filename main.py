@@ -57,5 +57,10 @@ def login():
     return render_template("double_protection.html", title="Аварийный доступ", form=form)
 
 
+@app.route("/distribution")
+def distribution():
+    return render_template("distribution.html", title="distribution")
+
+
 if __name__ == '__main__':
     app.run(port=8080, host='127.0.0.1')
