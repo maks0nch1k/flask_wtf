@@ -13,6 +13,11 @@ def ready(title):
     return render_template("base.html", title=title)
 
 
+@app.route("/training/<prof>")
+def training(prof):
+    return render_template("training.html", title="training", prof=prof)
+
+
 @app.route("/list_prof/<param>")
 def jobs_list(param):
     jobs = ["инженер-исследователь",
