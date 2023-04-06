@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <h2 align="center">Оформление каюты</h2>
+  <table class="table align-middle">
+    <thead class="table-dark table-swatches">
+      <tr>
+        <th scope="col">Цвет стен</th>
+        <th scope="col">Эмблема</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        {% if sex == "female" %}
+          {% if age < 21 %}
+            <td class="bg-warning"></td>
+            <td><img src="/static/img/young.png"></td>
+          {% else %}
+            <td style="background-color: darkgoldenrod"></td>
+            <td><img src="/static/img/old.png"></td>
+          {% endif %}
+        {% elif sex == "male" %}
+          {% if age < 21 %}
+            <td class="bg-primary"></td>
+            <td><img src="/static/img/young.png"></td>
+          {% else %}
+            <td style="background-color: aqua"></td>
+            <td><img src="/static/img/old.png"></td>
+          {% endif %}
+        {% endif %}
+      </tr>
+    </tbody>
+  </table>
+
+{% endblock %}

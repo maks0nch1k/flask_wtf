@@ -1,5 +1,6 @@
 from flask import Flask, render_template, redirect
 from loginform import LoginForm
+import os
 
 
 app = Flask(__name__)
@@ -60,6 +61,17 @@ def login():
 @app.route("/distribution")
 def distribution():
     return render_template("distribution.html", title="distribution")
+
+
+@app.route("/gallery")
+def gallery():
+    img_list = os.listdir("C:/Users/79819/PycharmProjects/flask_wtf/static/img")
+    return render_template("gallery.html", title="Красная планета", img_list=img_list)
+
+
+@app.route("/table/<sex>/<int:age>")
+def table(sex, age):
+    return render_template("table.html", title="table", sex=sex, age=age)
 
 
 if __name__ == '__main__':
