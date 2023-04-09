@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Энди",
+    "surname": "Уир",
+    "photo": "http://eti-deti.com/wp-content/uploads/2013/04/04_04_smallrobot.gif",
+    "jobs": ["специалист по радиационной защите", "астрогеолог"]
+  },
+  {
+    "name": "Makar",
+    "surname": "Korovkin",
+    "photo": "https://sun9-2.userapi.com/impg/Z338ca_VqweX7lxpOppD1ZEA8QISdVgNRj01Og/Qma-ubhRKOc.jpg?size=1280x1024&quality=95&sign=fe40071494181861cc90daa446d0d0cb&type=album",
+    "jobs": ["Bebrovkin", "Molochkin", "Jordani Yavonovich"]
+  }
+]

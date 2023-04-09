@@ -1,6 +1,7 @@
 from flask import Flask, render_template, redirect
 from loginform import LoginForm
 import os
+import json
 
 
 app = Flask(__name__)
@@ -77,6 +78,14 @@ def gallery():
 @app.route("/table/<sex>/<int:age>")
 def table(sex, age):
     return render_template("table.html", title="table", sex=sex, age=age)
+
+
+@app.route("/member")
+def member():
+    with open("templates/member.json", encoding="UTF-8") as file:
+        f = file.read()
+        data = json.loads(f)
+    return render_template("member.html", title="member", list_of_members=data)
 
 
 if __name__ == '__main__':

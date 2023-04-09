@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    {% set member = list_of_members|random %}
+    <h1 align="center">{{ member.name }} {{ member.surname }}</h1>
+    <p align="center">
+        <img src="{{ member.photo }}">
+    </p>
+    <p align="center">{{ member.jobs|sort|join(", ") }}</p>
+
+{% endblock %}
