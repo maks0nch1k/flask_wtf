@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect
+from flask import Flask, render_template, redirect, request
 from loginform import LoginForm
 import os
 import json
@@ -69,10 +69,22 @@ def distribution():
     return render_template("distribution.html", title="distribution")
 
 
-@app.route("/gallery")
+@app.route("/gallery", methods=["POST", "GET"])
 def gallery():
-    img_list = os.listdir("C:/Users/79819/PycharmProjects/flask_wtf/static/img")
-    return render_template("gallery.html", title="Красная планета", img_list=img_list)
+    img_list = os.listdir(os.getcwd() + "/static/img")
+    first_img = img_list[0]
+    img_list = img_list[1:]
+    if request.method == "GET":
+        return render_template("gallery.html",
+                               title="Красная планета",
+                               img_list=img_list,
+                               len_img_list=len(img_list) + 1,
+                               first_img=first_img)
+    elif request.method == "POST":
+        img = request.files["file"]
+        with open(f"static/img/{len(img_list) + 1}.png", "wb") as file:
+            file.write(img.read())
+        return redirect("/gallery")
 
 
 @app.route("/table/<sex>/<int:age>")
